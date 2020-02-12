@@ -1,38 +1,42 @@
-.App {
+:root{
+  --lightPurple:#5c1dad;
+  --primaryWhite: #f6f0ff;
+  --primaryBlack:#191a15l
+}
+body{
+  font-family: 'Quicksand', sans-serif  !important; 
+  background: var(--primaryWhite) !important;
+  color: var(--primaryBlack) !important;
+  min-height: 100%;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text-title{
+  font-family: 'Quicksand', sans-serif  !important; 
+  text-transform: uppercase;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.text-logo{
+  font-family: 'Lacquer', sans-serif !important;
+  letter-spacing: 0.2rem;
+  color: var(--primaryWhite);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.text-purple{
+  color: var(--lightPurple)
 }
-
-.App-link {
-  color: #61dafb;
+.text-black{
+  color: var(--primaryBlack)
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-app{
+  background: transparent;
+  text-transform: capitalize;
+  font-size: 0.5rem !important;
+  color: var(--primaryBlack);
+  border-radius: 0.1rem !important;
+  border: 0.1rem solid var(--lightPurple) !important;
+}
+.btn-app:hover{
+  background: var(--primaryWhite);
+  color: var(--lightPurple)
+}
+.search-input{
+  border-radius: 50px 0px 0px 50px;
 }
