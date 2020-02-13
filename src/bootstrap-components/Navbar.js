@@ -25,7 +25,7 @@ class Navbar extends React.Component{
                     </Link>
                 </li>
                 <li className="nav-item ml-4">
-                    <Link to="/" className="nav-link">
+                    <Link to="/about" className="nav-link">
                         About app
                     </Link>
                 </li>

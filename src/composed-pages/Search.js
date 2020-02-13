@@ -9,7 +9,6 @@ class Search extends React.Component {
         return (
             <div>
                 <Title title="Type a song name"/>
-                <SearchBar/>
             </div>
         )
     }

@@ -1,18 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Switch, Route} from "react-router-dom"
+import React from "react"
 import App from '../App'
 import TrackComponent from '../components/TrackComponent'
+import Navbar from "../bootstrap-components/Navbar"
 import Search from "../composed-pages/Search"
-function Router(){
-
-return (
+import About from '../composed-pages/About'
+const Router = () => (
     <BrowserRouter>
+        <Navbar /> 
         <Switch>
             <Route to="/" component={App} exact/>
-            <Route to="/lyrics/:id" component={TrackComponent}/>
+            <Route to="/about" component={App}/>
+            {/* <Route to="/lyrics/:id" component={TrackComponent}/> */}
         </Switch>
     </BrowserRouter>
 )
-}
 export default Router
