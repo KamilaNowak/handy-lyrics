@@ -23,7 +23,7 @@ class  About extends React.Component{
                     style={{width:"70px", height:"70px",padding:"8px"}}/></a>
                    </div>
                     <br/>
-                   <p> All data is free to use and is owned and maintained by KSOFT.aPI <a  href="https://api.ksoft.si/"><img src="https://cdn.ksoft.si/images/Logo1024-B&W.png"
+                   <p> All data is free to use and  it is powered by KSOFT.API <a  href="https://api.ksoft.si/"><img src="https://cdn.ksoft.si/images/Logo1024-B&W.png"
                     style={{width:"40px"}}/></a></p>
                     
                 </div>

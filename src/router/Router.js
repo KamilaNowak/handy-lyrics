@@ -9,7 +9,7 @@ const Router = () => (
     <BrowserRouter>
         <Navbar /> 
         <Switch>
-            <Route to="/" component={App} exact/>
+            <Route to="/" component={About} exact/>
             <Route to="/about" component={App}/>
             {/* <Route to="/lyrics/:id" component={TrackComponent}/> */}
         </Switch>
