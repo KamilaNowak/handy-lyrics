@@ -71,9 +71,10 @@ class TrackList extends React.Component{
         const top = await request.json()
         
         var tempArr= []
-        top.message.body.track_list.forEach(song => {
+        
+        top.message.body.track_list.map(song => (
             tempArr.push(song.track.track_name + " " + song.track.artist_name)
-        });
+        ));
        
         this.setState({
             top:tempArr
