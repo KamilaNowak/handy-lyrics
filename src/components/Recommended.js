@@ -5,10 +5,13 @@ import {Link} from "react-router-dom"
 import Title from '../bootstrap-components/Title'
 
 const Recommended  = ({album_art,album,artist,name,id}) =>{
+    
     return(
+       
         <div className="row">
-            <h5> <Title title=" top list recommendations"/></h5>
+            
             <TrackWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-4">
+            <h5 className="text-title"> <strong>today's recommendation</strong></h5>
                 <Link to={{pathname: `/lyrics/${id}`,
                         state: {trackID: id, trackName:name}}}>
             <div className="track-card">

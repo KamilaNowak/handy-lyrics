@@ -97,6 +97,7 @@ class TrackList extends React.Component{
                                 id={topTrack.id}
                             />
                         ))}
+                        
                             {this.state.trackList.map(track => (
                                 <TrackComponent 
                                 key ={track.id}
