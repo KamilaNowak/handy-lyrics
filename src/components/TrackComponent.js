@@ -12,7 +12,7 @@ const TrackComponent = ({album_art,album,artist,name,id}) =>{
                 <Link to={{pathname: `/lyrics/${id}`,
                             state: {trackID: id, trackName:name}}}>
                 <div className="track-card">
-                    <div className="track-container p-5">
+                    <div className="track-container ">
                             <img src={album_art==="https://cdn.ksoft.si/images/Logo1024%20-%20W.png"
                             ? "https://i.dlpng.com/static/png/6331252_preview.png" 
                             : album_art } style={{width:'100%', height:'100%'}} alt="single-track-image" className="card-img-top"/>

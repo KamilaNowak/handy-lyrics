@@ -8,7 +8,7 @@ class Search extends React.Component {
    render(){
         return (
             <div>
-                <Title title="Type a song name"/>
+                <Title title="Type a song name or artist"/>
             </div>
         )
     }

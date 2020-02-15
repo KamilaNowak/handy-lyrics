@@ -4,21 +4,26 @@ import {Link} from "react-router-dom"
 import SearchBar from '../bootstrap-components/SearchBar'
 import TrackComponent from "../components/TrackComponent"
 import Search from "../composed-pages/Search"
+import Recommdender from './Recommended'
+import Recommended from "./Recommended"
 
 const CORS ="https://cors-anywhere.herokuapp.com/"
 const TOKEN=process.env.REACT_APP_API_KEY
+const TOP_LIST_TOKEN= process.env.REACT_APP_TOP_KEY
+const URL =`https://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&page_size=4&apikey=`
 class TrackList extends React.Component{
    
     constructor(){
         super()
         this.state={
-            trackList:[]
+            topTrackList:[],
+            trackList:[],
+            top:[],
         }
         this.getSearch = this.getSearch.bind(this)
     }
 
     async getSearch(event){
-        console.log(TOKEN)
         event.preventDefault()
         const trackName = event.target.searchBar.value
         const request = await fetch(`${CORS}https://api.ksoft.si/lyrics/search?q=${trackName}`,
@@ -31,11 +36,45 @@ class TrackList extends React.Component{
             },
         });
         const result = await request.json()
-        console.log(result)
 
         this.setState({
             trackList: result.data
         })
+    }
+
+    async getRecomendations(){
+        let topsFinal =[]
+        for(let i=0 ;i< this.state.top.length;i++){
+            let singleTrackName =this.state.top[i]
+            const request = await fetch(`${CORS}https://api.ksoft.si/lyrics/search?q=${singleTrackName}`,
+            {
+                method: 'GET',
+                headers: {
+                    'Accept' : 'application/json',
+                    'Content-Type' : 'application/json',
+                    Authorization: 'Bearer ' + `${TOKEN}`
+                },
+            });
+            const result = await request.json()
+            topsFinal.push(result.data[0])
+        }
+       this.setState({
+           topTrackList: topsFinal
+       })
+    }
+    componentDidMount = async () =>{
+        const request = await fetch(`${CORS}${URL}${TOP_LIST_TOKEN}`)
+        const top = await request.json()
+        
+        var tempArr= []
+        top.message.body.track_list.forEach(song => {
+            tempArr.push(song.track.track_name + " " + song.track.artist_name)
+        });
+       
+        this.setState({
+            top:tempArr
+        })
+        this.getRecomendations()
     }
 
     render(){
@@ -43,7 +82,16 @@ class TrackList extends React.Component{
             <div className="app">
                 <Search />
                 <SearchBar getSearch={this.getSearch}/>
-               
+                {this.state.topTrackList.map(topTrack =>(
+                    <Recommended 
+                        key={topTrack.id}
+                        album_art={topTrack.album_art}
+                        album={topTrack.album}
+                        artist={topTrack.artist}
+                        name={topTrack.name}
+                        id={topTrack.id}
+                    />
+                ))}
                     {this.state.trackList.map(track => (
                          <TrackComponent 
                          key ={track.id}
@@ -51,8 +99,8 @@ class TrackList extends React.Component{
                          album={track.album}
                          artist={track.artist}
                          name ={track.name}
-                         id={track.id}/>
-                         
+                         id={track.id}
+                         />
                     ))}
                    
                 
