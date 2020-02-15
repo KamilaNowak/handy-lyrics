@@ -6,6 +6,7 @@ import TrackComponent from "../components/TrackComponent"
 import Search from "../composed-pages/Search"
 import Recommdender from './Recommended'
 import Recommended from "./Recommended"
+import Title from "../bootstrap-components/Title"
 
 const CORS ="https://cors-anywhere.herokuapp.com/"
 const TOKEN=process.env.REACT_APP_API_KEY
@@ -38,7 +39,8 @@ class TrackList extends React.Component{
         const result = await request.json()
 
         this.setState({
-            trackList: result.data
+            trackList: result.data,
+            topTrackList: []
         })
     }
 
@@ -59,7 +61,9 @@ class TrackList extends React.Component{
             topsFinal.push(result.data[0])
         }
        this.setState({
-           topTrackList: topsFinal
+           topTrackList: topsFinal,
+           trackList: [],
+           top: []
        })
     }
     componentDidMount = async () =>{
@@ -82,29 +86,27 @@ class TrackList extends React.Component{
             <div className="app">
                 <Search />
                 <SearchBar getSearch={this.getSearch}/>
-                {this.state.topTrackList.map(topTrack =>(
-                    <Recommended 
-                        key={topTrack.id}
-                        album_art={topTrack.album_art}
-                        album={topTrack.album}
-                        artist={topTrack.artist}
-                        name={topTrack.name}
-                        id={topTrack.id}
-                    />
-                ))}
-                    {this.state.trackList.map(track => (
-                         <TrackComponent 
-                         key ={track.id}
-                         album_art= {track.album_art}
-                         album={track.album}
-                         artist={track.artist}
-                         name ={track.name}
-                         id={track.id}
-                         />
-                    ))}
-                   
-                
-              
+
+                             {this.state.topTrackList.map(topTrack =>(
+                            <Recommended 
+                                key={topTrack.id}
+                                album_art={topTrack.album_art}
+                                album={topTrack.album}
+                                artist={topTrack.artist}
+                                name={topTrack.name}
+                                id={topTrack.id}
+                            />
+                        ))}
+                            {this.state.trackList.map(track => (
+                                <TrackComponent 
+                                key ={track.id}
+                                album_art= {track.album_art}
+                                album={track.album}
+                                artist={track.artist}
+                                name ={track.name}
+                                id={track.id}
+                                />
+                            ))}              
             </div>
         )
     }

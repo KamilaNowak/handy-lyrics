@@ -2,11 +2,13 @@ import React from "react"
 import ReactDOM from "react-dom"
 import {TrackWrapper} from '../styled-components/TrackWrapper'
 import {Link} from "react-router-dom"
+import Title from '../bootstrap-components/Title'
 
 const Recommended  = ({album_art,album,artist,name,id}) =>{
     return(
         <div className="row">
-            <TrackWrapper className="col-sm-6 mx-auto col-md-6 col-lg-3 my-4">
+            <h5> <Title title=" top list recommendations"/></h5>
+            <TrackWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-4">
                 <Link to={{pathname: `/lyrics/${id}`,
                         state: {trackID: id, trackName:name}}}>
             <div className="track-card">
