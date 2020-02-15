@@ -1,7 +1,7 @@
 import React from 'react'
 import '../App.css';
 import reactDOM from 'react-dom'
-import {Link} from 'react-router-dom'
+import {Link} from "react-router-dom"
 import {NavbarWrapper} from '../styled-components/NavbarWrapper'
 
 const APP_LOGO="https://cdn2.iconfinder.com/data/icons/music-festival-11/32/music_festival-18-128.png"

@@ -50,8 +50,9 @@ class TrackList extends React.Component{
                          album_art= {track.album_art}
                          album={track.album}
                          artist={track.artist}
-                         name ={track.name}/>
-                            // <h1>{track.artist}</h1>
+                         name ={track.name}
+                         id={track.id}/>
+                         
                     ))}
                    
                 

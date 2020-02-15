@@ -9,7 +9,6 @@ function App() {
   return (
    <React.Fragment>
      <TrackList/>
-    
    </React.Fragment>
   );
 }

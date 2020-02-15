@@ -40,3 +40,7 @@ body{
 .search-input{
   border-radius: 50px 0px 0px 50px;
 }
+.lyrics-text{
+  white-space: pre-wrap;
+  font-size: 20px;
+}
