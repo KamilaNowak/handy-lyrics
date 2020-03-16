@@ -12,7 +12,7 @@ https://api.ksoft.si/
 
 ## Sample usage
 
-![sample](https://imgur.com/X8GNGd5)
+![](https://github.com/KamilaNowak/handy-lyrics/blob/master/sample-app-usage.gif )
 
 ## Authors
 
